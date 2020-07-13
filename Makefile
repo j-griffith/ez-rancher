@@ -17,3 +17,7 @@ validate:  ## Validate terraform
 .PHONY: fmt
 fmt:  ## Fixes formatting
 	terraform fmt -write=true -recursive -diff .
+
+.PHONY: terraform-apply
+terraform-apply: ## Executes terraform apply command with default arguments
+	sh ./runner.sh
