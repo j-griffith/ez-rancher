@@ -6,12 +6,12 @@ fi
 tfvars=${1:-'./terraform/vsphere-rancher/rancher.tfvars'}
 deliverables=${2:-'./terraform/vsphere-rancher/deliverables'}
 
-if [ ! test -f tfvars ]; then
+if [ ! -f "$tfvars" ]; then
   echo 'tfvars file not found. Exiting'
   exit 1;
 fi
 
-if [ ! -f deliverables ]; then
+if [ ! -d "$deliverables" ]; then
   echo 'deliverables directory not found. Exiting'
   exit 1;
 fi
