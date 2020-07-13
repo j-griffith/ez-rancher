@@ -3,8 +3,8 @@ if ( ! docker stats --no-stream > /dev/null ); then
   exit 1;
 fi
 
-tfvars=${1:-'./terraform/vsphere-rancher/rancher.tfvars'}
-deliverables=${2:-'./terraform/vsphere-rancher/deliverables'}
+tfvars=${1:-"${PWD}/rancher.tfvars"}
+deliverables=${2:-"${PWD}/deliverables"}
 
 if [ ! -f "$tfvars" ]; then
   echo 'tfvars file not found. Exiting'
@@ -17,4 +17,4 @@ if [ ! -d "$deliverables" ]; then
 fi
 
 make image
-docker run -it --rm -v "${PWD}"/rancher.tfvars:"$tfvars" -v "${PWD}"/deliverables:"$deliverables" terraform-rancher apply -state=deliverables/terraform.tfstate
+docker run -it --rm -v "$tfvars":/terraform/vsphere-rancher/rancher.tfvars -v "$deliverables":/terraform/vsphere-rancher/deliverables terraform-rancher apply -state=deliverables/terraform.tfstate
