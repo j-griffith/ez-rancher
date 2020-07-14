@@ -10,14 +10,14 @@ tfvars=${2:-"${PWD}/rancher.tfvars"}
 deliverables=${3:-"${PWD}/deliverables"}
 
 if [ ! -f "$tfvars" ]; then
-  echo 'Local tfvars file not found at'
+  echo 'Local tfvars file not found at:'
   echo "$tfvars"
   echo 'Exiting'
   exit 1;
 fi
 
 if [ ! -d "$deliverables" ]; then
-  echo 'Local deliverables file not found at'
+  echo 'Local deliverables file not found at:'
   echo "$deliverables"
   echo 'Exiting'
   exit 1;
