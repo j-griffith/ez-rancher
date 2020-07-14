@@ -20,8 +20,8 @@ fmt:  ## Fixes formatting
 
 .PHONY: dockerized-terraform-apply
 dockerized-terraform-apply: ## Executes terraform apply command with default arguments
-	./runner.sh apply
+	hack/runner.sh apply
 
 .PHONY: dockerized-terraform-destroy
 dockerized-terraform-destroy: ## Executes terraform destroy command with default arguments
-	./runner.sh destroy
+	hack/runner.sh destroy
