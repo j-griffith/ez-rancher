@@ -1,11 +1,7 @@
-variable "worker_count" {
+variable "cluster_node_count" {
   type        = number
-  description = "Number of worker nodes"
-}
-
-variable "control_plane_count" {
-  type        = number
-  description = "Number of control plane nodes"
+  description = "Number of cluster nodes"
+  default     = 3
 }
 
 variable "vsphere_user" {
