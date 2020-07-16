@@ -23,4 +23,5 @@ if [ ! -d "$deliverables" ]; then
   mkdir -p "$deliverables"
 fi
 
+make image
 docker run -it --rm -v "$tfvars":/terraform/vsphere-rancher/rancher.tfvars -v "$deliverables":/terraform/vsphere-rancher/deliverables terraform-rancher:"$IMAGE_TAG" "$operation" -auto-approve -var-file=/terraform/vsphere-rancher/rancher.tfvars -state=deliverables/terraform.tfstate
