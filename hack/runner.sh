@@ -19,9 +19,8 @@ fi
 if [ ! -d "$deliverables" ]; then
   echo 'Local deliverables file not found at:'
   echo "$deliverables"
-  echo 'Exiting'
-  exit 1;
+  echo 'Attempting to create it for you...'
+  mkdir -p "$deliverables"
 fi
 
-make image
 docker run -it --rm -v "$tfvars":/terraform/vsphere-rancher/rancher.tfvars -v "$deliverables":/terraform/vsphere-rancher/deliverables terraform-rancher "$operation" -state=deliverables/terraform.tfstate
